@@ -1,0 +1,6 @@
+---
+
+- hosts: locahost
+  remote_user: root
+  roles:
+    - prometheus_centos

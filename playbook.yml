@@ -1,0 +1,33 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Install update (CentOS)
+    yum:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "Centos"
+
+  - name: Install update (Ubuntu)
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: ubuntu
+  become: true
+  tasks:
+    - name: Install Prometheus for Ubuntu Server
+      include_role:
+        name: prometheus_ubuntu
+      when: ansible_distribution == "Ubuntu"
+
+- hosts: centos
+  become: true
+  tasks:
+    - name: Install Prometheus for CentOS Server
+      include_role:
+        name: prometheus_centos
+      when: ansible_distribution == "CentOS"
