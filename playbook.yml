@@ -24,6 +24,11 @@
         name: prometheus_ubuntu
       when: ansible_distribution == "Ubuntu"
 
+    - name: Install Cacti for Ubuntu Server
+      include_role:
+        name: cacti_ubuntu
+      when: ansible_distribution == "Ubuntu"
+
 - hosts: centos
   become: true
   tasks:
@@ -31,3 +36,9 @@
       include_role:
         name: prometheus_centos
       when: ansible_distribution == "CentOS"
+
+    - name: Install Cacti for CentOS Server
+      include_role:
+        name: cacti_centos
+      when: ansible_distribution == "CentOS"
+

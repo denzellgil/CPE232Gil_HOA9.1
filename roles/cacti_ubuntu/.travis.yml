@@ -8,17 +8,17 @@ sudo: false
 addons:
   apt:
     packages:
-    - python-pip
+    - python-zip
 
 
 install:
+
   - pip install ansible
   - ansible --version
   - printf '[defaults]\nroles_path=../'>ansible.cfg
 
-
 script:
-  - ansible-playbook tests/test.yml -i test test/inventory --syntax-check
+  - ansible-playbook tests/test.yml -i test/inventory --syntax-check
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

@@ -1,1 +1,7 @@
 ---
+
+- name: Install cacti on Ubuntu Server
+  apt:
+    name: cacti
+    state: latest
+  when: ansible_distribution == "Ubuntu"

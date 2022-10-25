@@ -68,7 +68,7 @@
 
 - name: Copy to console library to etc
   shell: "cp -r /tmp/prometheus-2.39.1.darwin-amd64/console_libraries /etc/prometheus/"
-  
+
 
 - name: Copy prometheus systemd.service to system
   copy:
